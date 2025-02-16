@@ -1,7 +1,8 @@
 
 let articulos = [];
 
-let URL_BOL = 'http://localhost:1234/api/boligrafo';
+const URL_BOL = "/api/boligrafo"; 
+
 
 let operacion_compraventa = 0; // 0 equivale a compra, 1 a reposición
 
@@ -11,50 +12,44 @@ $(document).ready(function () {
     // Borra y recarga abl con el maestro del inventario. 
     function refrescarListado() {
 
-        $.get("http://my-json-server.typicode.com/desarrollo-seguro/dato/solicitudes",
-            function (result) {
+            $.get(URL_BOL, function (data) {
 
-                $.get(URL_BOL, function (data) {
+                console.log(data);
 
-                    console.log(data);
+                let $padre = $('#listado');
+                let $maestro = $("maestro");
 
-                    let $padre = $('#listado');
-                    let $maestro = $("maestro");
+                $padre.empty();
 
-                    $padre.empty();
+                data.forEach(x => {
+                    console.log("Processing item:", x);
+                    let $linea = $('<tr>');
 
-                    data.forEach(x => {
-                        console.log("Processing item:", x);
-                        let $linea = $('<tr>');
+                    articulos.push({ id: x.id, nombre: x.nombre });
+                    $linea.append($('<td class="renglon mt-3 md-3" style=display:none>').text(x.id));
+                    $linea.append($('<td class="renglon mt-3 md-3">').text(x.color));
+                    $linea.append($('<td class="renglon mt-3md-3">').text(x.escribe));
+                    $linea.append($('<td class="renglon mt-3md-3 text-right">').text(x.nombre));
+                    $linea.append($('<td class="text-center">').append($(`</button><button class="btn btn-warning btn-lg botonera boton_edicion">Editar</button>
+                            </button><button class="btn btn-danger btn-lg botonera boton_baja">Borrar</button>
+                            `)));
 
-                        articulos.push({ id: x.id, nombre: x.nombre });
-                        $linea.append($('<td class="renglon mt-3 md-3" style=display:none>').text(x.id));
-                        $linea.append($('<td class="renglon mt-3 md-3">').text(x.color));
-                        $linea.append($('<td class="renglon mt-3md-3">').text(x.escribe));
-                        $linea.append($('<td class="renglon mt-3md-3 text-right">').text(x.nombre));
-                        $linea.append($('<td class="text-center">').append($(`</button><button class="btn btn-warning btn-lg botonera boton_edicion">Editar</button>
-                                </button><button class="btn btn-danger btn-lg botonera boton_baja">Borrar</button>
-                                `)));
+                    $padre.append($linea);
 
-                        $padre.append($linea);
-
-                    });
-
-                    escondeDetalles();
-                    $maestro.show();
-                    $padre.show();
-
-                    console.log(articulos);
-
-                }).fail(function () {
-
-                    console.log("Error");
                 });
 
+                escondeDetalles();
+                $maestro.show();
+                $padre.show();
+
+                console.log(articulos);
+
+            }).fail(function () {
+
+                console.log("Error");
             });
 
         window.refrescarListado = refrescarListado;
-
 
     };
 

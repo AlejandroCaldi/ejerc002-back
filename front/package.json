@@ -8,16 +8,18 @@
     "build": "parcel build index.html",
     "server": "npx parcel src/index.html"
   },
+  "proxy": "http://localhost:8080",
   "keywords": [],
   "author": "",
   "license": "Apache-2.0",
-  "description": "",
   "dependencies": {
     "jquery": "^3.7.1",
     "jquery-validation": "^1.21.0"
   },
   "devDependencies": {
-    "bootstrap": "^5.3.3",
+    "bootstrap": "^3.4.1",
     "parcel": "^2.13.3"
-  }
+  },
+  "type": "commonjs",
+  "description": ""
 }
