@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </link>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+    <script src="./scripts/index.js"></script>
+    <link href="estilos/estilos.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="./estilos/warehouse.ico">
+    <title>Manejo Inventario</title>
+</head>
+
+<body>
+    <header>
+        <h1> Inventario</h1>
+
+        <button id="boton_lista" class="btn btn-info btn-lg"> Refrescar </button>
+        <button id="boton_nuevo" class="btn btn-warning btn-lg"> Agregar Producto </button>
+    </header>
+    <br>
+    <maestro hidden>
+
+        <p>Filtrar por:</p>  
+        <input class="form-control table-nonfluid" id="filtrado" type="text" placeholder="Filtrar...">
+        <br>
+
+        <table class="table table-nonfluid" >
+            <thead class="thead-dark container table table-bordered">
+
+                <Id hidden>ID Producto</Id>
+                <th class="text-center">Color</th>
+                <th class="text-center">Escribe</th>
+                <th class="text-center">Nombre</th>
+
+            </thead>
+            <tbody id="listado">
+
+                <!-- Acá va el refreso de listado de bolígrafos ...-->
+            </tbody>
+        </table>
+
+    </maestro>
+
+    <nuevo id="nuevo" hidden>
+        <form class="vertical" id="registracion">
+            <datafield>
+                <legend> Registración de Nuevo Bolígrafo</legend>
+
+                <div class="horizontal">
+                    <input type="hidden" id="id" name="id" hidden>
+                    <label for="color_nuevo">Nombre:</label>
+                    <input type="color" id="color_nuevo" name="color_nuevo" required>
+                </div>
+                <div class="horizontal">
+                    <label for="escribe_nuevo">Descripción:</label>
+                    <input type="checkbox" id="escribe_nuevo" name="escribe_nuevo" required>
+                </div>
+
+
+                <div class="horizontal">
+                    <label for="nombre_nuevo">Cantidad:</label>
+                    <input type="text" id="nombre_nuevo" name="nombre_nuevo" class="Roboto" required>
+                </div>
+            </datafield>
+
+        </form>
+
+    </nuevo>
+
+    
+</body>
+
+</html>
