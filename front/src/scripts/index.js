@@ -1,7 +1,7 @@
 
 let articulos = [];
 
-const URL_BOL = "/api/boligrafo"; 
+const URL_BOL = "http://localhost:3000/api/boligrafo"; 
 
 
 let operacion_compraventa = 0; // 0 equivale a compra, 1 a reposición
