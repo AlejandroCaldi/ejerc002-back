@@ -13,7 +13,7 @@ public class Boligrafo {
     private Long id;
 
     @Column(name="color")
-    private int[] color;
+    private String color;
 
     @Column(name="escribe")
     private Boolean escribe;
@@ -30,11 +30,11 @@ public class Boligrafo {
         this.id = id;
     }
 
-    public int[] getColor() {
+    public String getColor() {
         return this.color;
     }
 
-    public void setColor(int[] color) {
+    public void setColor(String color) {
         this.color = color;
     }
 

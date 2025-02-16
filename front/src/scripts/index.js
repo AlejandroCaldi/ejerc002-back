@@ -99,7 +99,7 @@ $(document).ready(function () {
         $("#id_nuevo").val(bolId);
         $("#color_nuevo").val(bolColor);
         $("#escribe_nueevo").val(bolEscribe);
-        $("#nombre_nuevo").val(prodNombre);
+        $("#nombre_nuevo").val(prod);
 
     });
 
