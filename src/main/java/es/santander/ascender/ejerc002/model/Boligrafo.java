@@ -13,12 +13,12 @@ public class Boligrafo {
     private Long id;
 
     @Column(name="color")
-    private String color;
+    private String color; // para pasar el valor como hexagesimal desde color chooser en el form. 
 
     @Column(name="escribe")
     private Boolean escribe;
 
-    @Column(name="nombre", unique = true)
+    @Column(name="nombre", unique = true) // asumimos que no habrìa dos lapiceras con el mismo nombre. 
     private String nombre;
 
 
