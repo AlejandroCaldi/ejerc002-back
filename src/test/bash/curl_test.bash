@@ -55,8 +55,4 @@ echo "Listado de vuelta de todos los boligrafos..."
 echo ""
 curl -s -X GET "$BASE_URL" -H "Content-Type: application/json"
 
-
-
-
-
 echo "Test terminado."
