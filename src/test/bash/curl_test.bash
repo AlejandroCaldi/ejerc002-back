@@ -45,10 +45,18 @@ echo ""
 echo ""
 
 echo "Borrado de un boligrafo con ID: $BOLIGRAFO_ID"
+echo ""
+curl -s -X DELETE "$BASE_URL/$BOLIGRAFO_ID" -H "Content-Type: application/json"
 
 echo ""
+echo ""
+
+echo "Listado de vuelta de todos los boligrafos..."
+echo ""
+curl -s -X GET "$BASE_URL" -H "Content-Type: application/json"
 
 
-curl -s -X DELETE "$BASE_URL/$BOLIGRAFO_ID" -H "Content-Type: application/json"
+
+
 
 echo "Test terminado."
